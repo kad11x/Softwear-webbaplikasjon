@@ -1,0 +1,51 @@
+/* Reset standardmargin og padding for hele dokumentet */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Bakgrunnsbilde og generell styling for kontaineren */
+.homepage-container {
+  background-image: url('C:\Users\abdha\OneDrive\Skrivebord\min_prosjekt\frontend\src\6065-fakta-om-norge.jpg'); /* Legg til URL til ditt bakgrunnsbilde */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Stil for inloggingsvinduet */
+.login-box {
+  background-color: rgba(255, 255, 255, 0.9); /* Bakgrunnsfarge med litt gjennomsiktighet */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 300px;
+}
+
+/* Stil for inloggingsfeltene og knappen */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #0011ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  width: 50%;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
