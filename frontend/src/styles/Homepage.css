@@ -8,7 +8,7 @@ html {
 
 /* Bakgrunnsbilde og generell styling for kontaineren */
 .homepage-container {
-  background-image: url('C:\Users\abdha\OneDrive\Skrivebord\min_prosjekt\frontend\src\6065-fakta-om-norge.jpg'); /* Legg til URL til ditt bakgrunnsbilde */
+  background-image: url('../bilder/6065-fakta-om-norge.jpg'); /* Legg til URL til ditt bakgrunnsbilde */
   background-size: cover;
   background-position: center;
   display: flex;

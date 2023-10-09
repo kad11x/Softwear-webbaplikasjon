@@ -17,7 +17,7 @@ def create_tables():
         conn = get_database_connection()
         cursor = conn.cursor()
         cursor.execute
-        # User
+        # Users
         cursor.execute(
             """
             CREATE TABLE IF NOT EXISTS users (
@@ -26,17 +26,18 @@ def create_tables():
             age INTEGER NOT NULL,
             email TEXT NOT NULL,
             place_of_birth TEXT NOT NULL)"""
-        )  
+        )
         # Guide
         cursor.execute(
             """
             CREATE TABLE IF NOT EXISTS guide (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
-            age INTEGER NOT NULL,
+            age INTEGER,
+            email TEXT NOT NULL,
             bio TEXT)"""
         )
-        # Tour
+        # Tours
         cursor.execute(
             """
             CREATE TABLE IF NOT EXISTS tours (
@@ -45,17 +46,17 @@ def create_tables():
             description TEXT,
             price DECIMAL(10, 2) NOT NULL,
             date_available TIMESTAMP,
-            location VARCHAR(255) NOT NULL,
-            guide_id INT REFERENCES guide(id))"""
+            location VARCHAR(255) NOT NULL
+            )"""
         )
-        # Shoppingcart
+        # Shopping_cart
         cursor.execute(
             """
             CREATE TABLE IF NOT EXISTS shopping_carts (
             id SERIAL PRIMARY KEY,
             user_id INT REFERENCES users(id),
             tour_ids TEXT)"""
-        )  # Dette feltet kan inneholde kommaseparerte tur-ID-er i handlekurven
+        )
 
         conn.commit()
         conn.close()

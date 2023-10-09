@@ -13,7 +13,7 @@ from database import (
 app = FastAPI()
 
 origins = [
-    "https://localhost:300"
+    "https://localhost:3000"
 ]  # react sin port, om du ikke gjør det så vil den ikke tilate forbinnelse
 
 app.add_middleware(
@@ -27,20 +27,85 @@ app.add_middleware(
 # Kjør create_tables-funksjonen ved oppstart av applikasjonen
 create_tables()
 
-# Definer de faste brukerdataene
+"""# Definer de faste brukerdataene
 users = {"bruker": "brukerpassord", "admin": "adminpassord", "selger": "selgerpassord"}
 
 
 @app.post("/login")
-async def login(brukere=AdministrerendeBrukere):
-    username = brukere.username
-    password = brukere.password
-
+async def login(username: str, password: str):
     # Valider brukernavn og passord
     if username in users and users[username] == password:
         return {"message": f"Du er logget inn som {username}."}
     else:
-        raise HTTPException(status_code=401, detail="Ugyldig brukernavn eller passord")
+        raise HTTPException(status_code=401, detail="Ugyldig brukernavn eller passord")"""
+
+
+# Opprett en bruker
+@app.post("/api/selger/add-user", response_model=Guide)
+async def add_guide(guide: Guide):
+    try:
+        conn = get_database_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "INSERT INTO guide (name, age, email, bio) VALUES (?, ?, ?, ?)",
+            (guide.name, guide.age, guide.email, guide.bio),
+        )
+
+        conn.commit()
+        conn.close()
+
+        return guide
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Feil under opprettelse av bruker: {str(e)}"
+        )
+
+
+# Opprett en bruker
+@app.post("/api/selger/add-tours", response_model=Tours)
+async def add_tours(tour: Tours):
+    try:
+        conn = get_database_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "INSERT INTO tours (name, description, price, date_available, location) VALUES (?, ?, ?, ?, ?)",
+            (
+                tour.name,
+                tour.description,
+                tour.price,
+                tour.date_available,
+                tour.location,
+            ),
+        )
+
+        conn.commit()
+        conn.close()
+
+        return tour
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Feil under opprettelse av bruker: {str(e)}"
+        )
+
+
+@app.get("/admin/homepage")
+async def bruker_homepage(username: str):
+    # Valider brukernavnet eller JWT-tokenet (avhengig av autentiseringssystemet)
+    if username in users:
+        return {"message": f"Velkommen til brukerens hjemmeside, {username}!"}
+    else:
+        raise HTTPException(status_code=401, detail="Ugyldig brukernavn eller token")
+
+
+@app.get("/selger/homepage")
+async def bruker_homepage(username: str):
+    # Valider brukernavnet eller JWT-tokenet (avhengig av autentiseringssystemet)
+    if username in users:
+        return {"message": f"Velkommen til brukerens hjemmeside, {username}!"}
+    else:
+        raise HTTPException(status_code=401, detail="Ugyldig brukernavn eller token")
 
 
 @app.get("/")
@@ -76,14 +141,14 @@ async def delete_todo(id):
 # -------------------------------------------------------------------------------------------------
 # **************************TESTER AT TABELLENE ER OPRETTET****************************************
 # -------------------------------------------------------------------------------------------------
-"""
+""""
 conn = get_database_connection()
 cursor = conn.cursor()
 
 # Kjør en spørring for å hente informasjon om alle tabellene i databasen
-cursor.execute("SELECT * FROM users;")
+cursor.execute("SELECT * FROM guide;")
 
-# Hent resultatene som en liste av tabellnavn
+#Hent resultatene som en liste av tabellnavn
 result = cursor.fetchall()
 
 conn.close()
@@ -94,17 +159,16 @@ for row in result:
     name = row["name"]
     age = row["age"]
     email = row["email"]
-    place_of_birth = row["place_of_birth"]
+    bio = row["bio"]
 
-    print(
-        f"ID: {id}, Name: {name}, Age: {age}, Email: {email}, Place of Birth: {place_of_birth}"
-    )
+    print(f"ID: {id}, Name: {name}, Age: {age}, Email: {email}, bio: {bio}")
 
 conn = get_database_connection()
 cursor = conn.cursor()
-cursor.execute("DELETE FROM users")
+cursor.execute("DELETE FROM guide")
 
 conn.commit()
 conn.close()
-print("asddddddddddddddddddddddd")
-print(result)"""
+
+print(result)
+"""

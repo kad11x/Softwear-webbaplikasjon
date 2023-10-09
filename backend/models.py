@@ -24,16 +24,15 @@ class Guide(BaseModel):
     age: int
     email: str
     bio: str
-    tours: List["Tour"]  # Liste over turer guiden tilbyr
 
 
-class Tour(BaseModel):
+class Tours(BaseModel):
     name: str
     description: str
     price: float
     date_available: datetime
+    location: str
 
 
 class ShoppingCart(BaseModel):
     user: "User"  # Legg til en referanse til User-modellen
-    items: List[Tour]
