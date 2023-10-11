@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import '../../styles/Selger.css';
+import api from '../Api.js';
 
 const Selger = () => {
   const [selectedCategory, setSelectedCategory] = useState('hovedside');
@@ -53,7 +52,9 @@ const Selger = () => {
     event.preventDefault();
     
     try {
-      await axios.post("/api/selger/add-user", sellerData);
+      console.log("Sending seller data:", sellerData); // line for debugging
+      const response = await api.post("/api/selger/add-user", sellerData);
+      console.log("Response from backend:", response.data); // line for debugging
       setSellerInfoAdded(true);
     } catch (error) {
       console.error('Feil ved innsending av selgerinformasjon:', error);
@@ -64,7 +65,7 @@ const Selger = () => {
     event.preventDefault();
 
     try {
-      await axios.post("/api/selger/add-tours", tourData);
+      await api.post("/api/selger/add-tours", tourData);
       setTourAdded(true);
     } catch (error) {
       console.error('Feil ved innsending av turinformasjon:', error);
