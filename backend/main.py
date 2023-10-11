@@ -13,7 +13,7 @@ from database import (
 app = FastAPI()
 
 origins = [
-    "https://localhost:3000"
+    "https://localhost:3000",
 ]  # react sin port, om du ikke gjør det så vil den ikke tilate forbinnelse
 
 app.add_middleware(
