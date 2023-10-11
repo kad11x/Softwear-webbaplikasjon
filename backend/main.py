@@ -27,18 +27,6 @@ app.add_middleware(
 # Kjør create_tables-funksjonen ved oppstart av applikasjonen
 create_tables()
 
-"""# Definer de faste brukerdataene
-users = {"bruker": "brukerpassord", "admin": "adminpassord", "selger": "selgerpassord"}
-
-
-@app.post("/login")
-async def login(username: str, password: str):
-    # Valider brukernavn og passord
-    if username in users and users[username] == password:
-        return {"message": f"Du er logget inn som {username}."}
-    else:
-        raise HTTPException(status_code=401, detail="Ugyldig brukernavn eller passord")"""
-
 
 # Opprett en bruker
 @app.post("/api/selger/add-user", response_model=Guide)
@@ -88,54 +76,6 @@ async def add_tours(tour: Tours):
         raise HTTPException(
             status_code=500, detail=f"Feil under opprettelse av bruker: {str(e)}"
         )
-
-
-@app.get("/admin/homepage")
-async def bruker_homepage(username: str):
-    # Valider brukernavnet eller JWT-tokenet (avhengig av autentiseringssystemet)
-    if username in users:
-        return {"message": f"Velkommen til brukerens hjemmeside, {username}!"}
-    else:
-        raise HTTPException(status_code=401, detail="Ugyldig brukernavn eller token")
-
-
-@app.get("/selger/homepage")
-async def bruker_homepage(username: str):
-    # Valider brukernavnet eller JWT-tokenet (avhengig av autentiseringssystemet)
-    if username in users:
-        return {"message": f"Velkommen til brukerens hjemmeside, {username}!"}
-    else:
-        raise HTTPException(status_code=401, detail="Ugyldig brukernavn eller token")
-
-
-@app.get("/")
-def read_root():
-    return "asdasdasd"
-
-
-@app.get("/api/todo")
-async def get_todo():
-    return 1
-
-
-@app.get("/api/todo{id}")
-async def get_todo_by_id(id):
-    return 1
-
-
-@app.post("/api/todo")
-async def post_todo(todo):
-    return 1
-
-
-@app.put("/api/todo/{id}")
-async def put_todo(id, data):
-    return 1
-
-
-@app.delete("/api/todo")
-async def delete_todo(id):
-    return 1
 
 
 # -------------------------------------------------------------------------------------------------

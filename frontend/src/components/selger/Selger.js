@@ -101,7 +101,7 @@ const Selger = () => {
       <div className="header">
         <div className={`dropdown ${isDropdownOpen ? 'open' : ''}`}>
           <button className="dropdown-button" onClick={toggleDropdown}>
-            {selectedCategory || '|||'}
+            {selectedCategory || 'Meny'}
             <span className="arrow">&#9662;</span>
           </button>
           <div className="dropdown-content">{renderCategories()}</div>
@@ -156,7 +156,7 @@ const Selger = () => {
               <label>
                 <input
                   type="text"
-                  name="email" // E-postfeltet
+                  name="email" 
                   placeholder="E-post"
                   value={sellerData.email}
                   onChange={handleSellerInputChange}

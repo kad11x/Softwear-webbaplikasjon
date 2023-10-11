@@ -34,7 +34,7 @@ const Bruker = () => {
       <div className="header">
         <div className={`dropdown ${isDropdownOpen ? 'open' : ''}`}>
           <button className="dropdown-button" onClick={toggleDropdown}>
-            {selectedCategory || '|||'}
+            {selectedCategory || 'Meny'}
             <span className="arrow">&#9662;</span>
           </button>
           <div className="dropdown-content">{renderCategories()}</div>
