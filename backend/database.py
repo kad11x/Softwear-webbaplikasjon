@@ -17,17 +17,18 @@ def create_tables():
         conn = get_database_connection()
         cursor = conn.cursor()
         cursor.execute
-        # Users
+        # Tourists
         cursor.execute(
             """
-            CREATE TABLE IF NOT EXISTS users (
+            CREATE TABLE IF NOT EXISTS tourists (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
+            fierstName TEXT NOT NULL,
+            lastName TEXT NOT NULL,
             age INTEGER NOT NULL,
-            email TEXT NOT NULL,
-            place_of_birth TEXT NOT NULL)"""
+            eMail TEXT NOT NULL,
+            phoneNumber INTEGER NOT NULL,)"""
         )
-        # Guide
+        # booked
         cursor.execute(
             """
             CREATE TABLE IF NOT EXISTS guide (
