@@ -3,10 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from models import *
 
 # siden vi bruker java for frontend og python for backend så vil det være to seperate porter de kjører på. denne funksjonen tilater dem å kunne fungere sammen
-from database import (
-    create_tables,
-    get_database_connection,
-)  # Importer create_tables-funksjonen
+from database import get_database_connection  # Importer create_tables-funksjonen
 
 
 # intansierer appen som en objekt:
@@ -25,7 +22,7 @@ app.add_middleware(
 )
 
 # Kjør create_tables-funksjonen ved oppstart av applikasjonen
-create_tables()
+# create_tables()
 
 
 # Opprett en bruker
