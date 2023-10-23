@@ -13,17 +13,19 @@ class AdministrerendeBrukere(BaseModel):
 
 # opprinelig database:
 class User(BaseModel):
-    name: str
-    age: int
-    email: str
-    place_of_birth: str
+    firstName: str
+    lastName: str
+    eMail: str
+    phoneNummber: int
 
-
-class Guide(BaseModel):
-    name: str
-    age: int
-    email: str
+class Guids(BaseModel):
+    firstName: str
+    lastName: str
+    company: str
+    eMail: str
+    phoneNummber: int
     bio: str
+    pictureURL: str
 
 
 class Tours(BaseModel):
