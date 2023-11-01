@@ -1,32 +1,31 @@
-// App.js
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import LoginComponent from "./components/Login";
-import AdminComponent from "./components/Admin";
-import SellerComponent from "./components/selger/Selger";
-import BuyerComponent from "./components/bruker/Bruker";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/login/Login";
+import MainPage from "./pages/MainPage";
+import GuideMainPage from "./pages/GuideMainPage";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ToursPage from "./pages/ToursPage";
+import Shoppingcart from "./pages/Shoppingcart";
+import OpprettGuidePage from "./pages/OpprettGuidePage";
 
 function App() {
-  const [user, setUser] = useState("");
 
-  const handleLogin = (username) => {
-    setUser(username);
-  };
 
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route
-            path="/"
-            element={user ? <Navigate to={`/${user}`} replace /> : <LoginComponent onLogin={handleLogin} />}
-          />
-          <Route path="/admin" element={<AdminComponent />} />
-          <Route path="/selger" element={<SellerComponent />} />
-          <Route path="/bruker" element={<BuyerComponent />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MainPage/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/guide" element={<Login/>}/>
+                <Route path="/user/:UserID" element={<MainPage/>} />
+                <Route path="/user/:UserID/tours/:tourID" element={<ToursPage/>}/>
+                <Route path="/user/:UserID/Shoppingcart" element={<Shoppingcart/>}/>
+                <Route path="/Guide/:GuideID/GuideMainPage" element={<GuideMainPage/>}/>
+                <Route path="/Guide/:GuideID/Opprett-guide" element={<OpprettGuidePage/>}/>
+            </Routes>
+        </BrowserRouter>
+    </div>
   );
 }
 
