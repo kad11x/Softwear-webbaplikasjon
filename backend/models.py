@@ -12,12 +12,11 @@ class LoginRequest(BaseModel):
 
 
 class Tourists(BaseModel):
-    tourists_id: Optional[int] = Field(None, alias="touristsID")
-    first_name: str = Field(..., alias="firstName")
-    last_name: str = Field(..., alias="lastName")
-    email: EmailStr = Field(..., alias="eMail")
-    phone_number: int = Field(..., alias="phoneNummber")
-    password: str = Field(..., alias="password")
+    firstName: str
+    lastName: str
+    email: str
+    phoneNumber: int
+    password: str
 
 
 class Language(BaseModel):

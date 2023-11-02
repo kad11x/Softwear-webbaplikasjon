@@ -29,8 +29,8 @@ app.add_middleware(
 # Opprett en tourist
 
 
-@app.post("/api/selger/sign-up", response_model=Tourists)
-async def add_tourist(tourist: Tourists):
+@app.post("/api/tourists/sign-up", response_model=Tourists)
+def add_tourist(tourist: Tourists):
     try:
         new_tourist = register_new_user(tourist)
         return new_tourist

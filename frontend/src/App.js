@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ToursPage from "./pages/ToursPage";
 import Shoppingcart from "./pages/Shoppingcart";
 import OpprettGuidePage from "./pages/OpprettGuidePage";
+import SignUp from "./pages/SignUp";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
+                <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/guide" element={<Login/>}/>
                 <Route path="/user/:UserID" element={<MainPage/>} />
@@ -23,6 +25,7 @@ function App() {
                 <Route path="/user/:UserID/Shoppingcart" element={<Shoppingcart/>}/>
                 <Route path="/Guide/:GuideID/GuideMainPage" element={<GuideMainPage/>}/>
                 <Route path="/Guide/:GuideID/Opprett-guide" element={<OpprettGuidePage/>}/>
+
             </Routes>
         </BrowserRouter>
     </div>

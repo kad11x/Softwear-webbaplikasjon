@@ -36,7 +36,7 @@ function Header({user}) {
                             // Display login or signup links if the user is not logged in
                             <>
                                 <Link to="/login" className="btn btn-primary me-2">Log In</Link>
-                                <Link to="/signup" className="btn btn-secondary">Sign Up</Link>
+                                <Link to="/sign-up" className="btn btn-secondary">Sign Up</Link>
                             </>
                         )}
                     </div>

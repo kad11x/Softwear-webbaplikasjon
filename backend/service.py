@@ -8,12 +8,12 @@ def register_new_user(tourists: Tourists):
     cursor = conn.cursor()
 
     cursor.execute(
-        "INSERT INTO Tourists (firstName, lastName, email,phoneNummber, password) VALUES (?,?,?,?,?)",
+        "INSERT INTO Tourists (firstName, lastName, email,phoneNumber, password) VALUES (?,?,?,?,?)",
         (
-            tourists.first_name,
-            tourists.last_name,
+            tourists.firstName,
+            tourists.lastName,
             tourists.email,
-            tourists.phone_number,
+            tourists.phoneNumber,
             tourists.password,
         ),
     )
