@@ -45,7 +45,7 @@ def login(request: LoginRequest):
         raise HTTPException(status_code=401, detail="Incorrect login credentials")
 
 
-@app.get("/tourists/{id}")
+@app.get("/tourist/{id}")
 async def read_tourist(id: int):
     tourist = get_one_tourist(id)
     if tourist:

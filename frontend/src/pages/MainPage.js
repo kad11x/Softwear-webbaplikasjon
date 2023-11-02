@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Header from '../components/header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MainPage.css'
+import axios from 'axios';
 import MainPageCityDestination from "../components/destinations/populareCitydestination";
 
 import {useParams} from "react-router-dom";
@@ -14,13 +15,20 @@ function MainPage() {
 
     useEffect(() => {
         if (UserID) {
-            fetch('http://localhost:8080/tourists/' + UserID)
-                .then(response => response.json())
-                .then(data => setTourist(data))
+            axios.get('http://localhost:8080/tourist/' + UserID)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);  // Log data to the console
+                    setTourist(data);
+                })
                 .catch(error => console.error(error));
-        }
-        else {
-            setTourist(null)
+        } else {
+            setTourist(null);
         }
     }, [UserID]);
 
