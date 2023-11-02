@@ -29,7 +29,7 @@ function MainPage() {
         <>
             <Header user={tourist}/>
             <div className = "image-Container">
-            <img src = {"/pictures/picture1.jpg"} id = "big-Picture" className=''/>
+            <img src = {"frontend\src\pages\picture1.jpg"} id = "big-Picture" className=''/>
             </div>
             <PopulareCountryDestination/>
             <MainPageCityDestination/>
