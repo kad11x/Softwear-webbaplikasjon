@@ -78,13 +78,14 @@ function Header({user}) {
                             </div>
                         ) : (
                             // Display login or signup links if the user is not logged in
-                            <>
-                                <Link to="/sign-up" className="btn btn-secondary me-2">Sign Up</Link>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                                <Link to="/sign-up" className="btn btn-secondary me-2" >Sign Up like a king</Link>
                                 <div className="dropdown me-2">
-                                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown form
+                                    <button className="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sign in like a legend
                                     </button>
-                                    <form className="dropdown-menu p-4" aria-labelledby="dropdownMenuButton" onSubmit={handleLogin}>
+                                    <form className=" dropdown-menu p-4" aria-labelledby="dropdownMenuButton" onSubmit={handleLogin}>
                                     <div className="mb-3">
                                         <label htmlFor="exampleDropdownFormEmail2" className="form-label">First Name</label>
                                         <input type="firstName" className="form-control" name="firstName" onChange={handleInputChange} placeholder="first name" />
@@ -104,7 +105,7 @@ function Header({user}) {
                                     <button to="submit" className="btn btn-secondary me-2">Sign in</button>
                                     </form>
                                 </div>
-                                </>
+                                </div>
 
                         )}
                     </div>

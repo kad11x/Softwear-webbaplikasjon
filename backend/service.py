@@ -68,3 +68,15 @@ def check_user_type(firstName, password):
             conn.close()
 
     return user_info
+
+
+def get_one_tourist(userID):
+    conn = get_database_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * from Tourists WHERE touristsID = ?", (userID,))
+    tourist = cursor.fetchone()
+
+    conn.commit()
+    conn.close()
+    return tourist

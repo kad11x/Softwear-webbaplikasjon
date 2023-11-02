@@ -22,12 +22,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Kjør create_tables-funksjonen ved oppstart av applikasjonen
-# create_tables()
-
-
-# Opprett en tourist
-
 
 @app.post("/api/tourists/sign-up", response_model=Tourists)
 def add_tourist(tourist: Tourists):
@@ -46,6 +40,15 @@ def login(request: LoginRequest):
     if user_info:
         user_type, user_id = user_info
         return {"userType": user_type, "userId": user_id}
+
     else:
         raise HTTPException(status_code=401, detail="Incorrect login credentials")
-    print(user_info)
+
+
+@app.get("/tourists/{id}")
+async def read_tourist(id: int):
+    tourist = get_one_tourist(id)
+    if tourist:
+        return tourist
+    else:
+        raise HTTPException(status_code=404, detail="Tourist not found")
