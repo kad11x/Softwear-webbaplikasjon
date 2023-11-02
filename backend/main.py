@@ -42,11 +42,10 @@ def add_tourist(tourist: Tourists):
 
 @app.post("/login")
 def login(request: LoginRequest):
-    is_valid_user = verify_user(request.first_name, request.password)
-    if is_valid_user:
-        return {"message": "Login successful"}
+    user_info = check_user_type(request.firstName, request.password)
+    if user_info:
+        user_type, user_id = user_info
+        return {"userType": user_type, "userId": user_id}
     else:
-        raise HTTPException(
-            status_code=401,
-            detail="Incorrect login credentials",
-        )
+        raise HTTPException(status_code=401, detail="Incorrect login credentials")
+    print(user_info)

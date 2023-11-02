@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import TourList from "../components/TourList";
 import HeaderGuide from "../components/header/HeaderGuide";
+
 function GuideMainPage(){
 
     return(

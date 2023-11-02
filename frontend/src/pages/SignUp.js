@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import HeaderSignUpForm from '../components/header/HeaderSignUpForm';
 
 
 function SignUp() {
@@ -48,7 +49,10 @@ function SignUp() {
         }
     };
     return (
-        <div class="container-xl">
+        
+        <>
+        <HeaderSignUpForm></HeaderSignUpForm>
+        <div className="container-xl " >
 
         <h1>Sign In Form </h1>
         <h4>dont stop the music</h4>
@@ -88,7 +92,10 @@ function SignUp() {
                 <button className="btn btn-primary" type="submit">Submit form</button>
             </div>
         </form>
+        <h1>tester skrift</h1>
         </div>
+        
+        </>
     );
 }
 

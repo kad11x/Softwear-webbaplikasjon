@@ -7,7 +7,7 @@ from pydantic import BaseModel, EmailStr, Field
 
 
 class LoginRequest(BaseModel):
-    first_name: str
+    firstName: str
     password: str
 
 
@@ -47,13 +47,13 @@ class City(BaseModel):
 
 
 class Guide(BaseModel):
-    guids_id: Optional[int] = Field(None, alias="guidsID")
-    first_name: str = Field(..., alias="firstName")
-    last_name: str = Field(..., alias="lastName")
+    firstName: str
+    lastName: str
     company: str
-    email: EmailStr = Field(..., alias="eMail")
-    phone_number: int = Field(..., alias="phoneNummber")
-    picture_url: str = Field(..., alias="pictureUrl")
+    email: str
+    password: str
+    phoneNumber: int
+    pictureURL: str
 
 
 class Tour(BaseModel):

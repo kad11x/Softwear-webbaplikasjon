@@ -30,3 +30,41 @@ def verify_user(first_name: str, password: str) -> bool:
     stored_password = cursor.fetchone()
     conn.close()
     return stored_password is not None and stored_password[0] == password
+
+
+def check_user_type(firstName, password):
+    conn = get_database_connection()
+    user_info = None
+    if conn:
+        try:
+            # Check if the user is a tourist
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT touristsID, password FROM tourists WHERE firstName = ?",
+                (firstName,),
+            )
+            tourist = cursor.fetchone()
+
+            if tourist and tourist[1] == password:
+                user_info = (
+                    "tourist",
+                    tourist[0],
+                )  # Return 'tourist' and the tourist ID
+
+            # Check if the user is a guid
+            else:
+                cursor.execute(
+                    "SELECT guidsID, password FROM guids WHERE firstName = ?",
+                    (firstName,),
+                )
+                guid = cursor.fetchone()
+
+                if guid and guid[1] == password:
+                    user_info = ("guid", guid[0])  # Return 'guid' and the guid ID
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        finally:
+            conn.close()
+
+    return user_info
