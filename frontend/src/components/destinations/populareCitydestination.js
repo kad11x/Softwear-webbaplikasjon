@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function MainPageCityDestination() {
-    const [cities, setCities] = useState([]);
+    const [tours, setTours] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/allCitys')
+        axios.get('http://127.0.0.1:8000/all-Tours')
             .then(response => {
-                setCities(response.data);
+                setTours(response.data);
             })
             .catch(error => {
                 console.error(error);
@@ -20,15 +20,23 @@ function MainPageCityDestination() {
 
     return (
         <div className="container" style={{ marginBottom: '5px' }}>
-            <div className="h1" style={{ marginBottom: '5vh' }}>Popular Tour City</div>
+            <div className="h1" style={{ marginBottom: '5vh' }}>Tours</div>
             <Row className="g-3">
-                {cities.slice(0, 8).map((city) => (
-                    <Col key={city.cityID} xs={12} sm={6} md={4} lg={3}>
-                        <Link to={`${city.city_countryID}/${city.city}`} style={{ textDecoration: 'none' }}>
+                {tours.map((tour) => (
+                    <Col key={tour.tourID} xs={12} sm={6} md={4} lg={3}>
+                        {/* Assuming you have a route to show tour details */}
+                        <Link to={`/tour/${tour.tourID}`} style={{ textDecoration: 'none' }}>
                             <Card>
-                                <Card.Img variant="top" src={city.city_picture} />
+                                {/* If you have images for tours, you can add them here */}
+                                {/* <Card.Img variant="top" src={tour.imageURL} /> */}
                                 <Card.Body>
-                                    <Card.Title>{city.city}</Card.Title>
+                                    <Card.Title>{tour.description}</Card.Title>
+                                    <Card.Text>
+                                        Price: {tour.price}<br />
+                                        Max People: {tour.maxPeople}<br />
+                                        Guide: {tour.guide_name}<br />
+                                        Country: {tour.country_name}
+                                    </Card.Text>
                                 </Card.Body>
                             </Card>
                         </Link>
@@ -38,5 +46,6 @@ function MainPageCityDestination() {
         </div>
     );
 }
+
 
 export default MainPageCityDestination;

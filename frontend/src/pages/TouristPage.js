@@ -32,10 +32,7 @@ function TouristPage() {
     return (
         <>
             <Header user={tourist}/>
-            <div className = "image-Container">
-            <img src = {"/picture1.jpg"} id = "big-Picture" className=''/> {/*må legge inn et bilde i bagrunnen */}
-            </div>
-            {/*<MainPageCityDestination/>*/}
+            {<MainPageCityDestination/>}
             
 
 

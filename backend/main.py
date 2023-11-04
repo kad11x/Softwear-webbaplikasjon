@@ -54,7 +54,7 @@ def read_tourist(id: int):
         raise HTTPException(status_code=404, detail="Tourist not found")
 
 
-@app.get("/tours")
+@app.get("/all-Tours")
 def read_all_tours():
     tour = get_all_tours()
     if tour:
