@@ -46,7 +46,7 @@ def login(request: LoginRequest):
 
 
 @app.get("/tourist/{id}")
-async def read_tourist(id: int):
+def read_tourist(id: int):
     tourist = get_one_tourist(id)
     if tourist:
         return tourist

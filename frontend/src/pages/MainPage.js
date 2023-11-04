@@ -15,18 +15,15 @@ function MainPage() {
 
     useEffect(() => {
         if (UserID) {
-            axios.get('http://localhost:8080/tourist/' + UserID)
+            axios.get('http://127.0.0.1:8000/tourist/'+UserID)
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
+                    console.log("User data fetched:", response.data);  // Log data to the console
+                    setTourist(response.data);  // Update state with the data
                 })
-                .then(data => {
-                    console.log(data);  // Log data to the console
-                    setTourist(data);
-                })
-                .catch(error => console.error(error));
+                .catch(error => {
+                    console.error('Error fetching user data:', error);
+                    setTourist(null);  // Handle error by setting tourist to null
+                });
         } else {
             setTourist(null);
         }
