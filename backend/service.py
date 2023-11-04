@@ -80,3 +80,29 @@ def get_one_tourist(userID):
     conn.commit()
     conn.close()
     return tourist
+
+
+def get_all_citys():
+    conn = get_database_connection()
+    cursor = conn.cursor()
+    query = """
+    SELECT 
+        t.description,
+        t.price,
+        t.maxPeople,
+        g.firstName || ' ' || g.lastName AS guide_name,
+        c.country AS country_name
+    FROM 
+        tour t
+    INNER JOIN 
+        guids g ON t.guids_guidsID = g.guidsID
+    INNER JOIN 
+        city ci ON t.city_cityID = ci.cityID
+    INNER JOIN 
+        country c ON ci.country_countryID = c.countryID;
+    """
+    cursor.execute(query)
+    tours = cursor.fetchall()
+    conn.close()
+
+    return tours

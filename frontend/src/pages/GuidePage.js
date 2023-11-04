@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import TourList from "../components/TourList";
 import HeaderGuide from "../components/header/HeaderGuide";
 
-function GuideMainPage(){
+function GuidePage(){
 
     return(
         <div>
@@ -13,4 +13,4 @@ function GuideMainPage(){
     )
 }
 
-export default GuideMainPage
+export default GuidePage

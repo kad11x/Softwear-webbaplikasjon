@@ -8,7 +8,7 @@ import MainPageCityDestination from "../components/destinations/populareCitydest
 import {useParams} from "react-router-dom";
 
 
-function MainPage() {
+function TouristPage() {
 
     const [tourist, setTourist] = useState({});
     const { UserID } = useParams();
@@ -45,5 +45,5 @@ function MainPage() {
 
 
 
-export default MainPage;
+export default TouristPage;
 

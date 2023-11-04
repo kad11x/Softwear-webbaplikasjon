@@ -74,10 +74,10 @@ function Header({user}) {
                                 <Link to={"/tourists/" + user.touristsID + "/Shoppingcart"}>
                                     <i className="bi bi-cart" style={{ fontSize: '24px', marginRight: '8px' }}></i>
                                 </Link>
-                                <span className="text-white me-3">Welcome, {user.firstName}</span>
+                                <span className="text-white me-3">Logged inn as, {user.firstName +" "+ user.lastName}</span>
                             </div>
                         ) : (
-                            // Display login or signup links if the user is not logged in
+                        
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
                                 <Link to="/sign-up" className="btn btn-secondary me-2" >Sign Up like a king</Link>
