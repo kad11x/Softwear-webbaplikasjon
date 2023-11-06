@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/login/Login";
 import TouristPage from "./pages/TouristPage";
 import GuidePage from "./pages/GuidePage";
+import MainPage from "./pages/MainPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ToursPage from "./pages/ToursPage";
 import Shoppingcart from "./pages/Shoppingcart";
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<TouristPage/>}/>
+                <Route path="/" element={<MainPage/>}/>
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/guide" element={<Login/>}/>
