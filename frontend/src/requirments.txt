@@ -1,1 +1,4 @@
 axios == 0.4.0
+
+npm install react-bootstrap
+npm install react-router-dom

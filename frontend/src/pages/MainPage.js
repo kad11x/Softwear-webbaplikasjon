@@ -2,11 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Header from '../components/header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MainPage.css'
-import Carusel from '../components/Carusel';
 import axios from 'axios';
-
-
-
 import {useParams} from "react-router-dom";
 
 
@@ -29,10 +25,11 @@ function MainPage() {
         }
     }, [UserID]);
 
+    
+
     return (
         <>
             <Header user={tourist} />
-            <Carusel />
 
             {/* ... (any other content you have before the featurettes) */}
             <div className="container marketing">

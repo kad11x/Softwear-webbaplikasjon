@@ -15,7 +15,7 @@ function TouristPage() {
 
     useEffect(() => {
         if (UserID) {
-            axios.get('http://127.0.0.1:8000/tourist/'+UserID)
+            axios.get('http://127.0.0.1:8000/tourist/'+ UserID)
                 .then(response => {
                     console.log("User data fetched:", response.data);  // Log data to the console
                     setTourist(response.data);  // Update state with the data

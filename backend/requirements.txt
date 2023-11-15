@@ -4,5 +4,8 @@ uvicorn == 0.22.0
 
 fastAPI == 
 
+frontend:
+
+bootstrap
 
 
