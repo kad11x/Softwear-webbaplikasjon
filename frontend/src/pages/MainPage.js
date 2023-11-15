@@ -32,19 +32,22 @@ function MainPage() {
                 {countries.map((country, index) => (
                         <div key={index} className="col-lg-4">
                             {/* Use country_url for the image. Replace this SVG with an actual image tag if necessary */}
-                            <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns={country.country_url} role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <rect width="100%" height="100%" fill="#777" />
-                            </svg>
-
+                            <img
+                                src={country.country_url}
+                                className="bd-placeholder-img rounded-circle"
+                                width="140"
+                                height="140"
+                                alt={`Flag of ${country.country}`}
+                            />
                             {/* Use country name for the heading */}
-                            <h2 className="fw-normal">{country.name}</h2>
+                            <h2 className="fw-normal">{country.country}</h2>
                             <p>Some representative placeholder content for the country.</p>
                             <p><a className="btn btn-secondary" href="#">View details »</a></p>
                         </div>
                     ))}
-                    {/* Second column */}
+                    {/* Second column
                     <div className="col-lg-4">
-                        {/* Placeholder image */}
+                        
                         <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
                             <rect width="100%" height="100%" fill="#777" />
                         </svg>
@@ -52,21 +55,21 @@ function MainPage() {
                         <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
                         <p><a className="btn btn-secondary" href="#">View details »</a></p>
                     </div>
-                    {/* Third column */}
+                    
                     <div className="col-lg-4">
-                        {/* Placeholder image */}
+                
                         <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
                             <rect width="100%" height="100%" fill="#777" />
                         </svg>
                         <h2 className="fw-normal">Heading</h2>
                         <p>And lastly this, the third column of representative placeholder content.</p>
                         <p><a className="btn btn-secondary" href="#">View details »</a></p>
-                    </div>
+                    </div>*/}
                 </div>
 
                 {/* ... (featurettes and other content follow here) */}
             </div>
-
+            
             {/* Featurettes */}
             <div className="container marketing">
 
