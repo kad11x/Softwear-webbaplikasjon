@@ -109,3 +109,15 @@ def get_all_tours():
 
     conn.close()
     return tours
+
+
+def get_all_Country():
+    conn = get_database_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * from country")
+    country = cursor.fetchall()
+
+    conn.commit()
+    conn.close()
+    return country

@@ -7,43 +7,41 @@ import {useParams} from "react-router-dom";
 
 
 function MainPage() {
-    const [tourist, setTourist] = useState({});
-    const { UserID } = useParams();
+    const [countries, setCountries] = useState([]);
+
 
     useEffect(() => {
-        if (UserID) {
-            axios.get(`http://127.0.0.1:8000/tourist/${UserID}`)
+        
+            axios.get(`http://127.0.0.1:8000/all-country`)
                 .then(response => {
-                    setTourist(response.data);
+                    setCountries(response.data);
                 })
                 .catch(error => {
                     console.error('Error fetching user data:', error);
-                    setTourist(null);
+                    setCountries(null);
                 });
-        } else {
-            setTourist(null);
-        }
-    }, [UserID]);
-
-    
+        }, [] );
 
     return (
         <>
-            <Header user={tourist} />
+            <Header/>
 
             {/* ... (any other content you have before the featurettes) */}
             <div className="container marketing">
                 <div className="row">
-                    {/* First column */}
-                    <div className="col-lg-4">
-                        {/* Placeholder image */}
-                        <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <rect width="100%" height="100%" fill="#777" />
-                        </svg>
-                        <h2 className="fw-normal">Heading</h2>
-                        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-                        <p><a className="btn btn-secondary" href="#">View details »</a></p>
-                    </div>
+                {countries.map((country, index) => (
+                        <div key={index} className="col-lg-4">
+                            {/* Use country_url for the image. Replace this SVG with an actual image tag if necessary */}
+                            <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns={country.country_url} role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <rect width="100%" height="100%" fill="#777" />
+                            </svg>
+
+                            {/* Use country name for the heading */}
+                            <h2 className="fw-normal">{country.name}</h2>
+                            <p>Some representative placeholder content for the country.</p>
+                            <p><a className="btn btn-secondary" href="#">View details »</a></p>
+                        </div>
+                    ))}
                     {/* Second column */}
                     <div className="col-lg-4">
                         {/* Placeholder image */}

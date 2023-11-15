@@ -61,3 +61,12 @@ def read_all_tours():
         return tour
     else:
         raise HTTPException(status_code=404, detail="Tour not found")
+
+
+@app.get("/all-country")
+def read_all_country():
+    country = get_all_Country()
+    if country:
+        return country
+    else:
+        raise HTTPException(status_code=404, detail="country not found")
