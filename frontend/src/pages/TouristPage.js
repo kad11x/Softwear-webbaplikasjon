@@ -31,7 +31,9 @@ function TouristPage() {
 
     return (
         <>
+        
             <Header user={tourist}/>
+            {/*lege en ny header som skal ha hoveskrift tours og innholde muligheten for å søke på turer og scrolle*/}
             {<MainPageCityDestination/>}
             
 

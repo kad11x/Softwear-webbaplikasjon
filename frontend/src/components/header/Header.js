@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Button } from 'react-bootstrap';
 
 
 function Header({user}) {
@@ -75,6 +76,10 @@ function Header({user}) {
                                     <i className="bi bi-cart" style={{ fontSize: '24px', marginRight: '8px' }}></i>
                                 </Link>
                                 <span className="text-white me-3">Logged inn as, {user.firstName +" "+ user.lastName}</span>
+                                <Link to="/">
+                                    <button class="btn btn-primary" type="button">Log Out
+                                    </button>
+                                </Link>
                             </div>
                         ) : (
                         

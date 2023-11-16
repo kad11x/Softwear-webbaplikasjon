@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
-import picture from "./picture1.jpg"
+
 import Header from "../components/header/Header";
 import BookingForm from "../components/BookingForm";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,7 +41,6 @@ function ToursPage(){
                 <div className="row">
                     <div className="col-md-6">
                         <img
-                            src={picture}
                             alt={tour.name}
                             className="img-fluid rounded"
                         />
