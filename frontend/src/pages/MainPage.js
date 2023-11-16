@@ -35,36 +35,16 @@ function MainPage() {
                             <img
                                 src={country.country_url}
                                 className="bd-placeholder-img rounded-circle"
-                                width="140"
-                                height="140"
+                                width="200"
+                                height="200"
                                 alt={`Flag of ${country.country}`}
                             />
                             {/* Use country name for the heading */}
                             <h2 className="fw-normal">{country.country}</h2>
-                            <p>Some representative placeholder content for the country.</p>
+                            <p>{country.country_info}</p>
                             <p><a className="btn btn-secondary" href="#">View details »</a></p>
                         </div>
                     ))}
-                    {/* Second column
-                    <div className="col-lg-4">
-                        
-                        <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <rect width="100%" height="100%" fill="#777" />
-                        </svg>
-                        <h2 className="fw-normal">Heading</h2>
-                        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-                        <p><a className="btn btn-secondary" href="#">View details »</a></p>
-                    </div>
-                    
-                    <div className="col-lg-4">
-                
-                        <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <rect width="100%" height="100%" fill="#777" />
-                        </svg>
-                        <h2 className="fw-normal">Heading</h2>
-                        <p>And lastly this, the third column of representative placeholder content.</p>
-                        <p><a className="btn btn-secondary" href="#">View details »</a></p>
-                    </div>*/}
                 </div>
 
                 {/* ... (featurettes and other content follow here) */}
@@ -78,6 +58,7 @@ function MainPage() {
                 <div className="row featurette">
                     <div className="col-md-7">
                         <h2 className="featurette-heading fw-normal lh-1">
+
                             First featurette heading. <span className="text-muted">It’ll blow your mind.</span>
                         </h2>
                         <p className="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>

@@ -27,8 +27,8 @@ function MainPageCityDestination() {
                         {/* Assuming you have a route to show tour details */}
                         <Link to={`/tour/${tour.tourID}`} style={{ textDecoration: 'none' }}>
                             <Card>
-                                {/* If you have images for tours, you can add them here */}
-                                {/* <Card.Img variant="top" src={tour.imageURL} /> */}
+                                
+                                <Card.Img variant="top" src={tour.tour_URL} />
                                 <Card.Body>
                                     <Card.Title>{tour.description}</Card.Title>
                                     <Card.Text>

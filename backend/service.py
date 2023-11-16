@@ -115,7 +115,19 @@ def get_all_Country():
     conn = get_database_connection()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * from country")
+    cursor.execute("SELECT * from country LIMIT 6")
+    country = cursor.fetchall()
+
+    conn.commit()
+    conn.close()
+    return country
+
+
+def get_all_City():
+    conn = get_database_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * from city")
     country = cursor.fetchall()
 
     conn.commit()
