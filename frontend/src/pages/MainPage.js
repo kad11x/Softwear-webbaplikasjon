@@ -3,7 +3,6 @@ import Header from '../components/header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MainPage.css'
 import axios from 'axios';
-import {useParams} from "react-router-dom";
 
 
 function MainPage() {

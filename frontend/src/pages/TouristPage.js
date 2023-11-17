@@ -11,7 +11,7 @@ import {useParams} from "react-router-dom";
 
 function TouristPage() {
 
-    const [tourist, setTourist] = useState({});
+    const [user, setTourist] = useState({});
     const { UserID } = useParams();
 
     useEffect(() => {
@@ -33,10 +33,9 @@ function TouristPage() {
     return (
         <>
         
-            <Header user={tourist}/>
+            <Header user={user}/>
             <hr className="featurette-divider" />
             <div className='container-lg'>
-            <HeaderTourist/>
             {/*lege en ny header som skal ha hoveskrift tours og innholde muligheten for å søke på turer og scrolle*/}
             {<MainPageCityDestination/>}
             </div>

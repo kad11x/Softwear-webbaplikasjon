@@ -19,11 +19,6 @@ function HeaderTourist() {
                         <input type="search" className="form-control form-control-dark" placeholder="Search..." aria-label="Search" />
                     </form>
 
-                    <div className="text-end">
-                        <Link to={"/user/" + "/Shoppingcart"}>
-                        <i className="bi bi-gear"></i>
-                            </Link>
-                    </div>
                 </div>
             </div>
         </header>

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
-
 import Header from "../components/header/Header";
 import BookingForm from "../components/BookingForm";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,7 +13,7 @@ function ToursPage(){
     const [user, setUser] = useState({})
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/OneTour/${tourID}`)
+        axios.get(`http://127.0.0.1:8000/one-tour//${tourID}`)
             .then(response => {
                 setTour(response.data);
             })
@@ -22,7 +21,7 @@ function ToursPage(){
                 console.error(error);
             },);
 
-        axios.get('http://localhost:8080/tourist/' + UserID)
+        axios.get('http://127.0.0.1:8000/tourist/' + UserID)
             .then(response => {
                 setUser(response.data);
                 console.log(UserID)
@@ -46,7 +45,7 @@ function ToursPage(){
                         />
                     </div>
                     <div className="col-md-6">
-                        <h1 className="mb-3">{tour.title}</h1>
+                        <h1 className="mb-3">{tour.description}</h1>
                         <p className="lead">{tour.description}</p>
                         <p className="text-muted">Price: ${tour.price}</p>
                     </div>

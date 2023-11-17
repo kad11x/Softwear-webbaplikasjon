@@ -32,9 +32,8 @@ const BookingForm = ({ maxPeople, touristID, tourID}) => {
 
         console.log(formData);
 
-        const apiUrl = 'http://localhost:8080/addTourToShoppingCartForOnePerson';
 
-        axios.post(apiUrl, formData)
+        axios.post('http://localhost:8080/addTourToShoppingCartForOnePerson', formData)
             .then((response) => {
                 console.log('Booking submitted successfully', response.data);
             })

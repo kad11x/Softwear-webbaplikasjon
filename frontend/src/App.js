@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/login/Login";
 import TouristPage from "./pages/TouristPage";
 import GuidePage from "./pages/GuidePage";
 import MainPage from "./pages/MainPage";
@@ -19,14 +18,12 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
                 <Route path="/sign-up" element={<SignUp/>}/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/guide" element={<Login/>}/>
                 <Route path="/tourist/:UserID" element={<TouristPage/>} />
                 <Route path="/guide/:GuideID" element={<GuidePage/>}/>
 
 
-                <Route path="/user/:UserID/tours/:tourID" element={<ToursPage/>}/>
-                <Route path="/user/:UserID/Shoppingcart" element={<Shoppingcart/>}/>
+                <Route path="/tour/:tourID" element={<ToursPage/>}/>
+                <Route path="/tourist/:UserID/Shoppingcart" element={<Shoppingcart/>}/>
                 {/*<Route path="/Guide/:GuideID/GuideMainPage" element={<GuideMainPage/>}/>
                 <Route path="/Guide/:GuideID/Opprett-guide" element={<OpprettGuidePage/>}/>*/}
 

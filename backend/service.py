@@ -133,3 +133,19 @@ def get_all_City():
     conn.commit()
     conn.close()
     return country
+
+#ikke ferdig må gjøre ferdig
+def add_tour_to_shoppingcart(sh_cart : Shopping_cart):
+    conn = get_database_connection()
+    cursor = conn.cursor()
+    cursor.excute("INSERT INTO shopping_cart")
+
+
+def get_one_tour(tourID : int):
+    conn = get_database_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM tour WHERE tourID = ?", (tourID,))
+    tour = cursor.fetchone()
+    cursor.close()
+
+    return tour

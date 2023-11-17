@@ -65,6 +65,8 @@ class Tour(BaseModel):
     max_people: int = Field(..., alias="maxPeople")
 
 
-class ShoppingCart(BaseModel):
-    tour_tour_id: int = Field(..., alias="tour_tourID")
-    tourists_tourists_id: int = Field(..., alias="tourists_touristsID")
+class Shopping_cart(BaseModel):
+    tour_tourID: int
+    tourists_touristsID: int
+    time: str
+    amount_of_people: str
