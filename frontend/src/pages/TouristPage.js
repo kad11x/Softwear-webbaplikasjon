@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './MainPage.css'
 import axios from 'axios';
 import MainPageCityDestination from "../components/destinations/populareCitydestination";
+import HeaderTourist from '../components/header/HeaderTourist';
 
 import {useParams} from "react-router-dom";
 
@@ -33,8 +34,13 @@ function TouristPage() {
         <>
         
             <Header user={tourist}/>
+            <hr className="featurette-divider" />
+            <div className='container-lg'>
+            <HeaderTourist/>
             {/*lege en ny header som skal ha hoveskrift tours og innholde muligheten for å søke på turer og scrolle*/}
             {<MainPageCityDestination/>}
+            </div>
+            
             
 
 
